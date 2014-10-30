@@ -1,0 +1,7 @@
+{
+  "name": "ppnet-proxy",
+  "version": "0.0.1",
+  "description": "Proxy for the Social Network Enabler to hide dbs",
+  "main": "proxy.js",
+  "author": "Pixelpark AG"
+}
