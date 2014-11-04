@@ -15,7 +15,7 @@ Install all required packages
 ```
 
 ## Usage
-Adjust your PPnet-config.json (see [config.json](https://github.com/pixelpark/ppnet/blob/master/app/config.js)) so that the remote-addresses link to your proxy.
+Adjust your PPnet-config.json (see [config.json](https://github.com/pixelpark/ppnet/blob/master/app/config.json)) so that the remote-addresses link to your proxy.
 You should also adjust the config.json of ppnet-proxy. The config-files should match by the database names.
 Run the proxy by the following command.
 ``` bash
