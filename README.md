@@ -4,7 +4,7 @@ ppnet-proxy
 A simple proxy for [PPnet](https://github.com/pixelpark/ppnet) to limit access to the remote couchdb.
 
 ## Installation
-Checkout ppnet-proxy Reposiroty and "cd" into ppnet folder
+Checkout ppnet-proxy repository and "cd" into ppnet folder
 ``` bash
     git clone https://github.com/pixelpark/ppnet-proxy.git
 ```
