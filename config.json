@@ -2,17 +2,14 @@
     "port" : 5983,
     "database": [
         {
-            "displayName": "Pixelpark",
             "name": "pixelpark",
             "remote": "http://couchdb.simple-url.com:5984/"
         },
         {
-            "displayName": "Museum",
             "name": "museum",
             "remote": "http://couchdb.simple-url.com:5984/"
         },
         {
-            "displayName": "Developer Pixelpark",
             "name": "pixelpark_dev",
             "remote": "http://couchdb.simple-url.com:5984/"
         }
