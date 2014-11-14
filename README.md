@@ -1,10 +1,10 @@
 ppnet-proxy
 ===========
 
-A simple proxy for [PPnet](https://github.com/pixelpark/ppnet) to limit access to the remote couchdb.
+A simple proxy for [PPnet](https://github.com/pixelpark/ppnet) to limit access to the remote couchdb. It is also able to serve static files of PPnet.
 
 ## Installation
-Checkout ppnet-proxy repository and "cd" into ppnet folder
+Checkout ppnet-proxy repository and "cd" into ppnet-proxy folder
 ``` bash
     git clone https://github.com/pixelpark/ppnet-proxy.git
 ```
@@ -23,3 +23,5 @@ Run the proxy by the following command.
 ```
 
 Database-requests should now be handled by your proxy.
+
+To serve static files of PPnet create a directory 'www' in your 'ppnet-proxy' folder and copy your ppnet-files in the 'www' folder.

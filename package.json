@@ -3,5 +3,8 @@
   "version": "0.0.1",
   "description": "Proxy for the Social Network Enabler to hide dbs",
   "main": "proxy.js",
-  "author": "Pixelpark AG"
+  "author": "Pixelpark AG",
+  "dependencies": {
+    "express": "^4.10.2"
+  }
 }

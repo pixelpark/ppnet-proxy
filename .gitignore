@@ -1,2 +1,4 @@
 /nbproject/
 /node_modules/
+/www/*
+!/www/put-ppnet-files-here.txt

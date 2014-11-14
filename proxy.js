@@ -1,37 +1,28 @@
 var http = require('http');
 var httpProxy = require('http-proxy');
-var fs = require('fs');
+var express = require('express');
+var app = express();
+var config = require('./config.json');
 
 /**
  * initialise the proxy
  */
 var proxy = httpProxy.createProxyServer({});
-var databases = {};
-var port = 5984;
-try {
-    var config = JSON.parse(fs.readFileSync('config.json','utf-8'));
-    databases = config.database;
-    port = config.port;
-} catch (err) {
-    console.log(err);
-    console.log("The Proxy-Server failed to read the config-file and exits.");
-    process.exit(0);
-}
+var databases = config.database || {};
+var port = config.port || 5984;
 
 proxy.on('error', function (error) {
     console.log(error);
 });
 
 /**
- * prevent clients from connecting to anything else than the specified dbs
- * by blocking every request that does not contain the specified db-names
+ * prevent the client from accessing /_utils or the like of the dbs
  */
-var server = http.createServer(function(req, res) {
-    
+app.use(function(req, res, next) {
     var currentdb = false;
     
     databases.forEach(function (db) {
-        if (req.url.search(db.name) === 1) {
+        if (req.url.search('/' + db.name + '/') === 0) {
             currentdb = db;
         }
     });
@@ -42,17 +33,15 @@ var server = http.createServer(function(req, res) {
         } catch (error) {
             console.log(error);
             console.log("Proxying to " + currentdb.remote + " did not work.");
-            res.statusCode = 401;
+            res.statusCode = 404;
             res.end();
         }
         
     } else {
-        console.log("Preventing a client from connecting to " + req.url);
-        res.statusCode = 401;
-        res.end();
+        next();
     }
 });
+
+app.use('/', express.static('www'));
 console.log("The DB-proxy is listening on port " + port);
-server.listen(port);
-
-
+app.listen(port);
