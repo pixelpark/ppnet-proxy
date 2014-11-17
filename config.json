@@ -1,5 +1,6 @@
 {
     "port" : 5983,
+    "token" : "abc123",
     "database": [
         {
             "name": "pixelpark",
