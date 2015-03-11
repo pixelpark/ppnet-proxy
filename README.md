@@ -11,6 +11,7 @@ Checkout ppnet-proxy repository and "cd" into ppnet-proxy folder
 
 Install all required packages
 ``` bash
+    cd ppnet-proxy
     npm install
 ```
 
