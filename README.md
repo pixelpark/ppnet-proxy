@@ -49,8 +49,9 @@ To serve static files of PPnet create a directory 'www' in your 'ppnet-proxy' fo
     mv ppnet/www ppnet-proxy/
 
     # get public ip
-    curl http://169.254.169.254/latest/meta-data/public-ipv4 > public.ip
-
+    # curl http://169.254.169.254/latest/meta-data/public-ipv4 > public.ip
+    curl ifconfig.me/ip > public.ip
+    
     # write it to config.json
     mv ppnet-proxy/www/config.json del.txt
     sed -e "s/couchdb.simple-url.com/`cat public.ip`/g" del.txt > temp && mv temp del.txt
@@ -60,5 +61,5 @@ To serve static files of PPnet create a directory 'www' in your 'ppnet-proxy' fo
 ```
 or, even easier:
 ``` bash
-    curl https://gist.githubusercontent.com/dirkk0/f7169b42055a013758c3/raw/dc17b2559103e554a0184b559ffce7256c3c6965/doit.sh | sh
+    curl https://gist.githubusercontent.com/dirkk0/f7169b42055a013758c3/raw/0f13525a3c72bb823f18f7715fda7b62f50ebf88/doit.sh | sh
 ```
