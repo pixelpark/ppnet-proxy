@@ -26,3 +26,33 @@ Run the proxy by the following command.
 Database-requests should now be handled by your proxy.
 
 To serve static files of PPnet create a directory 'www' in your 'ppnet-proxy' folder and copy your ppnet-files in the 'www' folder.
+
+## Install ppnet with proxy
+
+``` bash
+    sudo apt-get install couchdb
+    # curl http://localhost:5984
+
+    # install nvm
+    curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | sh
+    # current session should know the change
+    source ~/.profile
+    nvm install 0.12.0
+
+    sudo apt-get install --yes git
+    git clone https://github.com/pixelpark/ppnet
+    git clone https://github.com/pixelpark/ppnet-proxy.git
+
+    sudo rm -r ppnet-proxy/www/
+    mv ppnet/www ppnet-proxy/
+
+    # get local publi ip
+    curl http://169.254.169.254/latest/meta-data/public-ipv4 > public.ip
+
+    # write it to config.json
+    mv ppnet-proxy/www/config.json del.txt
+    sed -e "s/couchdb.simple-url.com/`cat public.ip`/g" del.txt > temp && mv temp del.txt
+    mv del.txt ppnet-proxy/www/config.json
+
+    cd ppnet-proxy; npm install; node proxy.js
+```
