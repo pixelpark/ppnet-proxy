@@ -3,20 +3,17 @@
     "token" : "abc123",
     "database": [
         {
-            "name": "pixelpark",
-            "remote": "http://couchdb.simple-url.com:5984/"
+            "name": "pixelpark"
         },
         {
-            "name": "museum",
-            "remote": "http://couchdb.simple-url.com:5984/"
+            "name": "museum"
         },
         {
-            "name": "pixelpark_dev",
-            "remote": "http://couchdb.simple-url.com:5984/"
+            "name": "pixelpark_dev"
         }
     ],
     "server_db_remote" : {
-        "port" : "DB_PORT_S",
-        "host" : "DB_HOST_S"
+        "port" : "DB_PORT_5984_TCP_PORT",
+        "host" : "DB_PORT_5984_TCP_ADDR"
     }
 }
